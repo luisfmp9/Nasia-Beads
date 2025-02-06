@@ -5,19 +5,26 @@
     font-family: 'Arial', sans-serif;
 }
 
+body {
+    background-color: var(--primary-red); /* Asegura que el fondo sea el mismo */
+    margin: 0;
+    padding: 0;
+}
+
 :root {
     --primary-red: #ff2d55;
     --secondary-red: #ff7f7f;
 }
 
 #header {
-    background-color: var(--primary-red);
+    background-color: var(--primary-red); /* Misma propiedad de fondo */
     padding: 20px;
     position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: none; /* Opcional si no quieres sombra */
 }
 
 .nav-container {
