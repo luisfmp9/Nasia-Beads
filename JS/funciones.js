@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
+
     document.querySelector("form").addEventListener("submit", function(event) {
         let nombre = document.querySelector("input[type='text']").value;
         let email = document.querySelector("input[type='email']").value;
@@ -38,31 +38,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-
-    // Crear animación de corazón al hacer click
-    function createHeartAnimation(event) {
-        const heart = document.createElement('div');
-        heart.className = 'ripple-effect';
-        heart.style.left = event.pageX + 'px';
-        heart.style.top = event.pageY + 'px';
-        document.body.appendChild(heart);
-        
-        setTimeout(() => {
-            heart.remove();
-        }, 1000);
-        console.log("hola");
-    }
-
-    // Animación de onda roja periódica
-    setInterval(() => {
-        const wave = document.createElement('div');
-        wave.className = 'wave-effect';
-        wave.style.left = '50%';
-        wave.style.top = '50%';
+    // Crear la onda al hacer clic
+    document.addEventListener("click", function (event) {
+        createWaveEffect(event.pageX, event.pageY);
+    });
+    
+    function createWaveEffect(x, y) {
+        const wave = document.createElement("div");
+        wave.className = "wave-effect";
+        wave.style.left = `${x - 75}px`; // Centrado de la onda (ajustado para el tamaño)
+        wave.style.top = `${y - 75}px`; // Centrado de la onda (ajustado para el tamaño)
         document.body.appendChild(wave);
-        
-        setTimeout(() => {
-            wave.remove();
-        }, 2000);
-    }, 5000);
+    
+        setTimeout(() => wave.remove(), 3000); // Duración de la onda
+    }
+    
+    // Scroll suave al hacer click en el botón
+    document.querySelector('button').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('#productos').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });        
+    
+    // Scroll suave al hacer click en el botón
+    document.querySelector('button').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('#productos').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
 });
