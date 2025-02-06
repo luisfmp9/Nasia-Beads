@@ -20,6 +20,42 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.logo {
+    height: 50px;
+}
+
+.buy-button {
+    width: 100%;
+    background: var(--primary-red);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.buy-button:hover {
+    background: var(--secondary-red);
+}
+
 nav ul {
     list-style: none;
     display: flex;
@@ -99,7 +135,7 @@ button {
 
 button:hover {
     background-color: var(--secondary-red);
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 button::after {
@@ -222,21 +258,23 @@ input:focus, textarea:focus {
 }
 
 .ripple-effect {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: var(--primary-red);
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 45, 85, 0.8);
     border-radius: 50%;
     animation: ripple-effect 1s ease-out;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
 }
 
 @keyframes ripple-effect {
     from {
-        transform: scale(0);
+        transform: translate(-50%, -50%) scale(0);
         opacity: 1;
     }
     to {
-        transform: scale(10);
+        transform: translate(-50%, -50%) scale(4);
         opacity: 0;
     }
 }

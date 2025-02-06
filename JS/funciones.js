@@ -1,4 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
+    
+    document.querySelector("form").addEventListener("submit", function(event) {
+        let nombre = document.querySelector("input[type='text']").value;
+        let email = document.querySelector("input[type='email']").value;
+        let mensaje = document.querySelector("textarea").value;
+    
+        if (nombre === "" || email === "" || mensaje === "") {
+            alert("Por favor, llena todos los campos.");
+            event.preventDefault();
+        } else if (!email.includes("@")) {
+            alert("Ingresa un correo válido.");
+            event.preventDefault();
+        } else {
+            alert("Mensaje enviado con éxito.");
+        }
+    });
+
     // Suavizar scroll al hacer click en los enlaces de navegación
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -13,12 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const header = document.getElementById('header');
         if (window.scrollY > 50) {
-            header.style.backgroundColor = '#ff2d55';
-            header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
+            header.style.backgroundColor = 'rgba(255, 45, 85, 0.9)';
+            header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
         } else {
-            header.style.backgroundColor = '#ff2d55';
+            header.style.backgroundColor = 'transparent';
+            header.style.boxShadow = 'none';
         }
     });
+
 
     // Crear animación de corazón al hacer click
     function createHeartAnimation(event) {

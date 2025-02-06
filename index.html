@@ -8,8 +8,9 @@
 </head>
 <body>
     <header id="header">
-        <nav>
-            <ul>
+        <nav class="nav-container">
+            <a href="#inicio"><img src="img/logo.png" alt="Flores y Más" class="logo"></a>
+            <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
                 <li><a href="#productos">Productos</a></li>
@@ -22,7 +23,7 @@
         <div class="hero-content">
             <h1>✨ Flores de Amor para San Valentín ✨</h1>
             <p>Descubre nuestras creaciones especiales para el día del amor</p>
-            <button>Explorar Regalos</button>
+            <button onclick="location.href='#productos'">Explorar Regalos</button>
         </div>
     </section>
 
@@ -38,22 +39,34 @@
             <h2>Nuestros Productos</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Arreglo floral">
+                    <picture>
+                        <source srcset="img/arreglo.webp" type="image/webp">
+                        <img src="img/arreglo.jpg" alt="Arreglo floral">
+                    </picture>
                     <h3>Arreglos de Amor</h3>
                     <p>Rosas rojas y flores especiales</p>
                     <p>$50.00</p>
+                    <button class="buy-button">Agregar al carrito</button>
                 </div>
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Plantas">
+                    <picture>
+                        <source srcset="img/arreglo.webp" type="image/webp">
+                        <img src="https://via.placeholder.com/300x200" alt="Plantas">
+                    </picture>
                     <h3>Plantas de Interior</h3>
                     <p>Plantas ornamentales para tu ser especial</p>
                     <p>$30.00</p>
+                    <button class="buy-button">Agregar al carrito</button>
                 </div>
                 <div class="product-card">
-                    <img src="https://via.placeholder.com/300x200" alt="Accesorios">
+                    <picture>
+                        <source srcset="img/arreglo.webp" type="image/webp">
+                        <img src="https://via.placeholder.com/300x200" alt="Accesorios">
+                    </picture>
                     <h3>Accesorios Románticos</h3>
                     <p>Detalles para tus regalos</p>
                     <p>$15.00</p>
+                    <button class="buy-button">Agregar al carrito</button>
                 </div>
             </div>
         </div>
