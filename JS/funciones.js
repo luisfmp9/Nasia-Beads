@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             heart.remove();
         }, 1000);
+        console.log("hola");
     }
 
     // Animación de onda roja periódica
