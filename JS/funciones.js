@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function createWaveEffect(x, y) {
         const wave = document.createElement("div");
         wave.className = "wave-effect";
-        wave.style.left = `${x - 75}px`; // Centrado de la onda (ajustado para el tamaño)
-        wave.style.top = `${y - 75}px`; // Centrado de la onda (ajustado para el tamaño)
+        wave.style.left = `${x - 25}px`; // Centrado de la onda (ajustado para el tamaño)
+        wave.style.top = `${y - 25}px`; // Centrado de la onda (ajustado para el tamaño)
         document.body.appendChild(wave);
     
         setTimeout(() => wave.remove(), 3000); // Duración de la onda

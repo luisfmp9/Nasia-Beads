@@ -261,22 +261,11 @@ input:focus, textarea:focus {
     animation: heartbeat 1s infinite;
 }
 
-.ripple-effect {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 45, 85, 0.8);
-    border-radius: 50%;
-    animation: ripple-effect 1s ease-out;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-}
-
 /* Estilo para la onda en forma de corazón */
 .wave-effect {
     position: absolute;
-    width: 150px;
-    height: 150px;
+    width: 70px;
+    height: 70px;
     background: rgba(255, 45, 85, 0.5);
     clip-path: path("M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z");
     animation: waveHeart 2s ease-out;
@@ -292,22 +281,11 @@ input:focus, textarea:focus {
         opacity: 1;
     }
     50% {
-        transform: scale(3);
+        transform: scale(5);
         opacity: 0.5;
     }
     100% {
-        transform: scale(5);
-        opacity: 0;
-    }
-}
-
-@keyframes ripple-effect {
-    from {
-        transform: translate(-50%, -50%) scale(0);
-        opacity: 1;
-    }
-    to {
-        transform: translate(-50%, -50%) scale(4);
+        transform: scale(10);
         opacity: 0;
     }
 }
