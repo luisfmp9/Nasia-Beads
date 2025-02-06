@@ -6,7 +6,7 @@
 }
 
 #header {
-    background-color: #f8f8f8;
+    background-color: #6c0; /* Verde claro */
     padding: 20px;
     position: fixed;
     width: 100%;
@@ -23,12 +23,12 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color: #fff; /* Blanco */
     font-weight: 500;
 }
 
 nav a:hover {
-    color: #6c0;
+    color: #5a0; /* Verde oscuro */
 }
 
 #hero {
@@ -44,25 +44,28 @@ nav a:hover {
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
+    color: #fff;
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 30px;
+    color: #fff;
 }
 
 button {
     padding: 15px 30px;
-    background-color: #6c0;
+    background-color: #6c0; /* Verde claro */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.1rem;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #5a0;
+    background-color: #5a0; /* Verde oscuro */
 }
 
 .container {
@@ -78,16 +81,19 @@ h2 {
 }
 
 .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-direction: horizontal;
     gap: 30px;
+    overflow-x: auto;
+    padding: 20px 0;
 }
 
 .product-card {
-    text-align: center;
+    min-width: 300px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #fff;
 }
 
 .product-card img {
@@ -100,6 +106,10 @@ h2 {
 .product-card h3 {
     margin: 15px 0;
     color: #333;
+}
+
+.product-card p {
+    color: #666;
 }
 
 form {

@@ -13,11 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const header = document.getElementById('header');
         if (window.scrollY > 50) {
-            header.style.backgroundColor = 'rgba(255,255,255,0.95)';
+            header.style.backgroundColor = '#6c0';
             header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.1)';
         } else {
-            header.style.backgroundColor = '#f8f8f8';
-            header.style.boxShadow = 'none';
+            header.style.backgroundColor = '#6c0';
         }
     });
 });
