@@ -105,7 +105,7 @@ nav a:hover::after {
     content: '❤';
     position: absolute;
     font-size: 4rem;
-    animation: heartbeat 1.5s infinite;
+    animation: heartbeat 1s infinite;
     opacity: 0;
 }
 
@@ -152,11 +152,11 @@ button::after {
 }
 
 @keyframes heartbeat {
-    0% { transform: scale(1); }
-    25% { transform: scale(1.1); }
-    50% { transform: scale(1); }
-    75% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% { transform: scale(2.5); }
+    25% { transform: scale(4); }
+    50% { transform: scale(4); }
+    75% { transform: scale(4); }
+    100% { transform: scale(2.5); }
 }
 
 @keyframes ripple {
@@ -215,6 +215,7 @@ h2 {
 
 .product-card p {
     color: #666;
+    padding-bottom: 10px;
 }
 
 form {
@@ -243,7 +244,7 @@ input:focus, textarea:focus {
     width: 40px;
     height: 40px;
     background: var(--primary-red);
-    border-radius: 50%;
+    clip-path: path("M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z");
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -251,10 +252,13 @@ input:focus, textarea:focus {
     font-size: 24px;
     color: white;
     z-index: 1000;
+    transform: scale(2); /* Aumenta el tamaño sin afectar la forma */
+    transform-origin: center;
 }
 
 .heart:hover {
-    animation: heartbeat 1.5s infinite;
+    transform: scale(2.5);
+    animation: heartbeat 1s infinite;
 }
 
 .ripple-effect {
