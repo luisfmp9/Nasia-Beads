@@ -1,14 +1,23 @@
 * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
 
+:root {
+    --primary-red: #ff2d55;
+    --secondary-red: #ff7f7f;
+}
+
 #header {
-    background-color: #6c0; /* Verde claro */
+    background-color: var(--primary-red);
     padding: 20px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 nav ul {
@@ -20,49 +29,109 @@ nav ul {
 
 nav a {
     text-decoration: none;
-    color: #fff; /* Blanco */
+    color: #fff;
     font-weight: 500;
+    position: relative;
 }
 
 nav a:hover {
-    color: #5a0; /* Verde oscuro */
+    color: var(--secondary-red);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--secondary-red);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 #hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080') center/cover;
+    background: linear-gradient(rgba(255, 45, 85, 0.9), rgba(255, 127, 127, 0.9)), url('https://via.placeholder.com/1920x1080') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero::before {
+    content: '❤';
+    position: absolute;
+    font-size: 4rem;
+    animation: heartbeat 1.5s infinite;
+    opacity: 0;
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 30px;
-    color: #fff;
 }
 
 button {
     padding: 15px 30px;
-    background-color: #6c0; /* Verde claro */
+    background-color: var(--primary-red);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     font-size: 1.1rem;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 button:hover {
-    background-color: #5a0; /* Verde oscuro */
+    background-color: var(--secondary-red);
+    transform: scale(1.05);
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 1s ease-out;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes ripple {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
 }
 
 .container {
@@ -74,23 +143,26 @@ button:hover {
 h2 {
     text-align: center;
     margin-bottom: 40px;
-    color: #333;
+    color: var(--primary-red);
 }
 
 .product-grid {
-    display: flex;
-    flex-direction: horizontal;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    overflow-x: auto;
-    padding: 20px 0;
+    position: relative;
 }
 
 .product-card {
-    min-width: 300px;
+    background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
 }
 
 .product-card img {
@@ -102,7 +174,7 @@ h2 {
 
 .product-card h3 {
     margin: 15px 0;
-    color: #333;
+    color: var(--primary-red);
 }
 
 .product-card p {
@@ -125,7 +197,48 @@ input, textarea {
 
 input:focus, textarea:focus {
     outline: none;
-    border-color: #6c0;
+    border-color: var(--primary-red);
+}
+
+.heart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    z-index: 1000;
+}
+
+.heart:hover {
+    animation: heartbeat 1.5s infinite;
+}
+
+.ripple-effect {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--primary-red);
+    border-radius: 50%;
+    animation: ripple-effect 1s ease-out;
+}
+
+@keyframes ripple-effect {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(10);
+        opacity: 0;
+    }
 }
 
 @media (max-width: 768px) {
