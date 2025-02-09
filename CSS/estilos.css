@@ -353,6 +353,12 @@ input, textarea {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    cursor: text;
+}
+
+input:hover, textarea:hover {
+    border-color: var(--primary-red); /* Resalta el borde al hacer hover */
+    box-shadow: 0 0 5px rgba(255, 45, 85, 0.5); /* Efecto de resplandor */
 }
 
 input:focus, textarea:focus {
