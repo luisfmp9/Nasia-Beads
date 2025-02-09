@@ -97,6 +97,7 @@ h2 {
 
 .nav-container {
     height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -106,7 +107,7 @@ h2 {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 0;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -114,7 +115,7 @@ h2 {
 
 .nav-links li {
     height: 100%;
-    padding: 0 20px; /* Espaciado lateral */
+    padding: 0 30px; /* Espaciado lateral */
     display: flex;
     align-items: center; /* Centrar texto verticalmente */
     transition: background-color 0.3s;
@@ -123,6 +124,14 @@ h2 {
 .nav-links li:hover {
     color: var(--red-dark);
     background-color: #ffffff;
+}
+
+.nav-links li:hover a {
+    color: var(--red-dark); /* Cambia el color del texto */
+}
+
+.nav-links li:hover a::after {
+    width: 100%;
 }
 
 .scrolled {
@@ -153,7 +162,7 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 0;
 }
 
 nav a {
@@ -199,7 +208,7 @@ nav a:hover::after {
     position: absolute;
     font-size: 8rem;
     animation: heartbeat 1.2s infinite;
-    opacity: 0.05;
+    opacity: 0.02;
     position: fixed;
     top: 200px;
 }
