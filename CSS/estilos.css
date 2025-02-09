@@ -5,10 +5,17 @@
     font-family: 'Arial', sans-serif;
 }
 
+:root {
+    --primary-red: #ff2d55;
+    --secondary-red: #ff7f7f;
+    --red-dark: #8B0000;
+}
+
 body {
     background-color: var(--primary-red); /* Asegura que el fondo sea el mismo */
     margin: 0;
-    padding: 0;
+    padding-top: 90px;
+    overflow-x: hidden;
 }
 
 section {
@@ -72,41 +79,58 @@ h2 {
     color: #b91c1c; /* Un tono rojo romántico */
 }
 
-:root {
-    --primary-red: #ff2d55;
-    --secondary-red: #ff7f7f;
-}
-
 #header {
-    background-color: var(--primary-red); /* Misma propiedad de fondo */
-    padding: 20px;
     position: fixed;
-    width: 100%;
     top: 0;
     left: 0;
+    background-color: var(--primary-red); /* Misma propiedad de fondo */
+    padding: 0;
+    width: 100%;
+    height: 90px;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     box-shadow: none; /* Opcional si no quieres sombra */
+    transition: all 0.3s ease-in-out;
 }
 
 .nav-container {
+    height: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
 .nav-links li {
-    display: inline;
+    height: 100%;
+    padding: 0 20px; /* Espaciado lateral */
+    display: flex;
+    align-items: center; /* Centrar texto verticalmente */
+    transition: background-color 0.3s;
+}
+
+.nav-links li:hover {
+    color: var(--red-dark);
+    background-color: #ffffff;
+}
+
+.scrolled {
+    background-color: rgba(255, 45, 85, 0.9);
 }
 
 .logo {
-    height: 50px;
+    height: 70px;
 }
 
 .buy-button {
@@ -121,14 +145,15 @@ h2 {
 }
 
 .buy-button:hover {
-    background: var(--secondary-red);
+    border: 2px solid #ff4d4d; /* Rojo más vibrante para destacar el borde */
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5); /* Efecto de resplandor */
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
 }
 
 nav a {
@@ -139,7 +164,7 @@ nav a {
 }
 
 nav a:hover {
-    color: var(--secondary-red);
+    color: var(--red-dark);
 }
 
 nav a::after {
@@ -149,7 +174,7 @@ nav a::after {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: var(--secondary-red);
+    background-color: var(--red-dark);
     transition: width 0.3s ease;
 }
 
@@ -172,9 +197,11 @@ nav a:hover::after {
 #hero::before {
     content: '❤';
     position: absolute;
-    font-size: 4rem;
-    animation: heartbeat 1s infinite;
-    opacity: 0;
+    font-size: 8rem;
+    animation: heartbeat 1.2s infinite;
+    opacity: 0.05;
+    position: fixed;
+    top: 200px;
 }
 
 .hero-content h1 {
@@ -202,12 +229,24 @@ button {
 }
 
 button:hover {
-    background-color: var(--secondary-red);
-    transform: scale(1.5);
+    transform: scale(1.2);
+    border: 2px solid #ff4d4d; /* Rojo más vibrante para destacar el borde */
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5); /* Efecto de resplandor */
+}
+
+.love-button {
+    border-radius: 50px;
+    margin-top: 20px;
+    width: 200px;
+    height: 100px;
+    font-size: x-large;
+    border: 0.5px solid #ffffff;
 }
 
 .love-button:hover {
     animation: Buttonbeat 1.2s infinite;
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.5); /* Efecto de resplandor */
 }
 
 button::after {
@@ -232,11 +271,11 @@ button::after {
 }
 
 @keyframes Buttonbeat {
-    0% { transform: scale(1.5); }
-    25% { transform: scale(2.1); }
-    50% { transform: scale(2.1); }
-    75% { transform: scale(2.1); }
-    100% { transform: scale(1.5); }
+    0% { transform: scale(1.2); }
+    25% { transform: scale(1.6); }
+    50% { transform: scale(1.6); }
+    75% { transform: scale(1.6); }
+    100% { transform: scale(1.2); }
 }
 
 @keyframes ripple {
@@ -314,8 +353,8 @@ input:focus, textarea:focus {
 
 .heart {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 50px;
+    right: 100px;
     width: 40px;
     height: 40px;
     background: var(--primary-red);
@@ -324,6 +363,7 @@ input:focus, textarea:focus {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     font-size: 24px;
     color: white;
     z-index: 1000;
@@ -333,7 +373,7 @@ input:focus, textarea:focus {
 
 .heart:hover {
     transform: scale(2.5);
-    animation: heartbeat 1s infinite;
+    animation: heartbeat 1.2s infinite;
 }
 
 /* Estilo para la onda en forma de corazón */

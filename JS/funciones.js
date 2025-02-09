@@ -26,16 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Animación al hacer scroll
-    window.addEventListener('scroll', function() {
-        const header = document.getElementById('header');
-        if (window.scrollY > 50) {
-            header.style.backgroundColor = 'rgba(255, 45, 85, 0.9)';
-            header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
-        } else {
-            header.style.backgroundColor = 'transparent';
-            header.style.boxShadow = 'none';
-        }
+    // Scroll suave al hacer click en el botón
+    document.querySelector('button').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector('#productos').scrollIntoView({
+            behavior: 'smooth'
+        });
     });
 
     // Crear la onda al hacer clic
@@ -52,20 +48,5 @@ document.addEventListener('DOMContentLoaded', function() {
     
         setTimeout(() => wave.remove(), 3000); // Duración de la onda
     }
-    
-    // Scroll suave al hacer click en el botón
-    document.querySelector('button').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector('#productos').scrollIntoView({
-            behavior: 'smooth'
-        });
-    });        
-    
-    // Scroll suave al hacer click en el botón
-    document.querySelector('button').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector('#productos').scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+         
 });
