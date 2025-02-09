@@ -11,6 +11,10 @@ body {
     padding: 0;
 }
 
+section {
+    scroll-margin-top: 114px; /* Ajusta según la altura del header */
+}
+
 #nosotros, #productos, #contacto {
     background-color: white;
 }
