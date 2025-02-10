@@ -442,6 +442,7 @@ input, textarea {
     border: 1px solid #ddd;
     border-radius: 5px;
     cursor: text;
+    z-index: 2000;
 }
 
 input:hover, textarea:hover {
