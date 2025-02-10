@@ -1,3 +1,21 @@
+function createWaveEffect(event) {
+    const wave = document.createElement("div");
+    wave.className = "wave-effect";
+    wave.style.left = `${event.pageX - 25}px`; // Centrado de la onda (ajustado para el tamaño)
+    wave.style.top = `${event.pageY - 25}px`; // Centrado de la onda (ajustado para el tamaño)
+    document.body.appendChild(wave);
+
+    setTimeout(() => wave.remove(), 3000); // Duración de la onda
+}
+     
+function toggleMenu() {
+    let nav = document.querySelector(".nav-links");
+    let menuToggle = document.querySelector(".menu-toggle");
+
+    nav.classList.toggle("active");
+    menuToggle.classList.toggle("active");
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector("form").addEventListener("submit", function(event) {
@@ -42,17 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Crear la onda al hacer clic
     document.addEventListener("click", function (event) {
-        createWaveEffect(event.pageX, event.pageY);
+        createWaveEffect(event);
     });
     
-    function createWaveEffect(x, y) {
-        const wave = document.createElement("div");
-        wave.className = "wave-effect";
-        wave.style.left = `${x - 25}px`; // Centrado de la onda (ajustado para el tamaño)
-        wave.style.top = `${y - 25}px`; // Centrado de la onda (ajustado para el tamaño)
-        document.body.appendChild(wave);
-    
-        setTimeout(() => wave.remove(), 3000); // Duración de la onda
-    }
-         
 });
