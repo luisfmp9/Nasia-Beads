@@ -12,7 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("Ingresa un correo válido.");
             event.preventDefault();
         } else {
-            alert("Mensaje enviado con éxito.");
+            let asunto = `Mensaje de ${nombre}`;
+            let cuerpo = `Nombre: ${nombre}\nEmail: ${email}\n\nMensaje:\n${mensaje}`;
+
+            // Crear el enlace mailto con los datos del formulario
+            let mailtoLink = `mailto:nathalykalantar@gmail.com?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+            // Redirigir al enlace mailto
+            window.location.href = mailtoLink;
         }
     });
 
