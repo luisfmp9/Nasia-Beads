@@ -16,6 +16,16 @@ function toggleMenu() {
     menuToggle.classList.toggle("active");
 }
 
+function initHoverSounds() {
+    const hoverSound = document.getElementById('hover-sound');
+    document.querySelectorAll('.hover-sound').forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            hoverSound.currentTime = 0;
+            hoverSound.play();
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector("form").addEventListener("submit", function(event) {
@@ -64,3 +74,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
 });
+
+document.addEventListener('DOMContentLoaded', initHoverSounds);
